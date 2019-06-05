@@ -3,13 +3,14 @@ build: false
 environment:
     PYTHON: "C:\\Python37"
     CONAN_LOGGING_LEVEL: 10
+    CONAN_TOTAL_PAGES: 2
     matrix:
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
           CONAN_VISUAL_VERSIONS: 16
-        test_script:
-          - dir
+          CONAN_CURRENT_PAGE: 1
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
           CONAN_VISUAL_VERSIONS: 16
+          CONAN_CURRENT_PAGE: 2
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
           CONAN_VISUAL_VERSIONS: 12
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
