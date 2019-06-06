@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import time
 from conans.client.conan_api import Conan
 
 if __name__ == "__main__":
@@ -15,7 +16,8 @@ if __name__ == "__main__":
 
     conan_api, _, _ = Conan.factory()
 
-    for _ in range(1000):
+    while True:
         conan_api.remote_add(remote_name, remote_url)
         conan_api.authenticate(name, password, remote_name)
         conan_api.remote_remove(remote_name)
+        time.sleep(2)
