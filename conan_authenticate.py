@@ -14,5 +14,8 @@ if __name__ == "__main__":
     name = os.getenv("CONAN_USERNAME", "uilianries")
 
     conan_api, _, _ = Conan.factory()
-    conan_api.remote_add(remote_name, remote_url)
-    conan_api.authenticate(name, password, remote_name)
+
+    for _ in range(100):
+        conan_api.remote_add(remote_name, remote_url)
+        conan_api.authenticate(name, password, remote_name)
+        conan_api.remote_remove(remote_name)
